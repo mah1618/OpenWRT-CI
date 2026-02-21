@@ -170,7 +170,9 @@ jobs:
           fi
 
           $GITHUB_WORKSPACE/Scripts/Settings.sh
-
+          echo "CONFIG_PACKAGE_luci-app-passwall2=y" >> .config
+          echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
+          echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
           make defconfig -j$(nproc) && make clean -j$(nproc)
 
       - name: Download Packages
